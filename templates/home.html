@@ -1,15 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+    {% block content %}
 
-<body>
-    <h1>Oh Yeah</h1>
-</body>
+    <h1>Employees</h1>
 
-</html>
+    {% for employee in object_list %}
+    <a href="{% url 'emp_info' employee.pk %}">
+        {{ employee.first_name }} {{ employee.last_name }}
+        {% endfor %}
+    </a>
+
+    {% endblock %}
+</div>
