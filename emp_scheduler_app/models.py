@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 class Emp_Details(models.Model):
     first_name = models.CharField(max_length=200)
     last_name = models.CharField(max_length=200)
+    name_tag = models.CharField(max_length=200, default="top_title")
     weekly_contact_hours = models.FloatField(default=40)
     department = models.CharField(max_length=200)
     supervisor = models.CharField(max_length=200, default="Boss")

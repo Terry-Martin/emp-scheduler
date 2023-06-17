@@ -1,14 +1,15 @@
 {% extends 'base.html' %}
 
-    {% block content %}
+{% block content %}
 
-    <h1>Employees</h1>
+<h1>Employees</h1>
 
-    {% for employee in object_list %}
-    <a href="{% url 'emp_info' employee.pk %}">
-        {{ employee.first_name }} {{ employee.last_name }}
-        {% endfor %}
-    </a>
+{% for employee in object_list %}
+<a href="{% url 'emp_info' employee.pk %}">
+    {{ employee.first_name }} {{ employee.last_name }}
+    {% endfor %}
+</a>
 
-    {% endblock %}
+{% endblock %}
 </div>
+
