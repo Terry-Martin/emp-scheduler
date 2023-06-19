@@ -6,6 +6,7 @@ from .models import Emp_Details
 class HomeView(ListView):
     model = Emp_Details
     template_name = 'home.html'
+    ordering = ['-created_at']
 
 
 class InfoView(DetailView):
@@ -16,4 +17,6 @@ class InfoView(DetailView):
 class AddNewEmployeeView(CreateView):
     model = Emp_Details
     template_name = 'add_new_employee.html'
-    fields = '__all__'  # add all fields from model
+    # fields = '__all__'  # add all fields from model
+    # select certain fields
+    fields = ('first_name', 'department', 'supervisor')
