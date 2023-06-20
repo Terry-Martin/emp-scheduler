@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
+# popup messages that disappear
+from django.contrib.messages import constants as messages
 
 if os.path.isfile("env.py"):
     import env
@@ -31,7 +33,10 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+
+# CORS - allows summernote to run. Might not need later
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 ALLOWED_HOSTS = ['8000-terry-martin-emp-schedul-wcbcz9hit9.us2.codeanyapp.com',
                  'emp-scheduler-fa2b3577e080.herokuapp.com', 'emp_scheduler.herokuapp.com']
@@ -60,6 +65,14 @@ SITE_ID = 1
 # Redirect user to home page
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
+MESSAGE_TAGS = {
+    messages.DEBUG: 'alert-info',
+    messages.INFO: 'alert-info',
+    messages.SUCCESS: 'alert_success',
+    messages.WARNING: 'alert-warning',
+    messages.ERROR: 'alert-danger'
+}
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
