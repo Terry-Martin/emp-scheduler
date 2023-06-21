@@ -3,12 +3,10 @@
 {% block content %}
 
 <h1>Add New Employee</h1>
-<br>
 <form method="POST">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="button" class="btn btn-secondary">Create</button>
 </form>
-
 
 {% endblock %}

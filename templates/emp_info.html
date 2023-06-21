@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+
 {% block title %}
 {{ emp_details.name_tag }}
 {% endblock %}
@@ -6,9 +7,22 @@
 {% block content %}
 
 <h1>DAMN IT</h1>
+
+{{ emp_details.supervisor }}
 {{ emp_details.name_tag }}
 {{ emp_details.department }}
 {{ emp_details.last_name }}
-{{ emp_details.first_name}}
+{{ emp_details.first_name }}
+
+<br>
+
+{{ shift.name }}
+{{ shifts.name }}
+{{ Shift.name }}
+{{ Shifts.name }}
+{{ shift.start_time}}
+
+
+
 
 {% endblock %}

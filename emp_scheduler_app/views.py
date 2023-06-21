@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView
-from .models import Emp_Details
+from .models import Emp_Details, Shift, Scheduled
 
 
 class HomeView(ListView):
@@ -11,6 +11,7 @@ class HomeView(ListView):
 
 class InfoView(DetailView):
     model = Emp_Details
+    # model = Shift
     template_name = 'emp_info.html'
 
 
