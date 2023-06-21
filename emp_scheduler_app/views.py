@@ -17,6 +17,7 @@ class InfoView(DetailView):
 class AddNewEmployeeView(CreateView):
     model = Emp_Details
     template_name = 'add_new_employee.html'
-    # fields = '__all__'  # add all fields from model
+    # add all fields from model
+    fields = '__all__'  # add all fields from model
     # select certain fields
-    fields = ('first_name', 'department', 'supervisor')
+    # fields = ('first_name', 'department', 'supervisor')

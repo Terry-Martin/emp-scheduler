@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Emp_Details
+from .models import Emp_Details, Shift
 
 admin.site.register(Emp_Details)
-# Register your models here.
+admin.site.register(Shift)
