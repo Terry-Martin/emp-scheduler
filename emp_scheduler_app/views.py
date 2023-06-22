@@ -11,7 +11,6 @@ class HomeView(ListView):
 
 class InfoView(DetailView):
     model = Emp_Details
-    # model = Shift
     template_name = 'emp_info.html'
 
 
@@ -22,3 +21,14 @@ class AddNewEmployeeView(CreateView):
     fields = '__all__'  # add all fields from model
     # select certain fields
     # fields = ('first_name', 'department', 'supervisor')
+
+
+class AddScheduleView(CreateView):
+    model = Shift
+    template_name = 'add_schedule.html'
+    fields = '__all__'
+
+
+class ShiftView(ListView):
+    model = Shift
+    template_name = 'shift_info.html'

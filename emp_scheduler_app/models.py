@@ -13,7 +13,7 @@ class Shift(models.Model):
     break_two = models.CharField(max_length=200)
     emp_detail = models.ManyToManyField('Emp_Details', through='Scheduled')
     added_by = models.ForeignKey(User, on_delete=models.CASCADE, default=2)
-    
+
     def __str__(self):
         return self.name
 
@@ -41,6 +41,7 @@ class Emp_Details(models.Model):
 
     def get_absolute_url(self):
         return reverse('home')
+
 
 # Connector/Many-To-Many model between Shift model and Emp_Details model
 class Scheduled(models.Model):

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Shift Info</h1>
+
+{% for shift in object_list %}
+<ul>
+    <li>
+        {{ shift.name }}: {{ shift.start_time }}
+    </li>
+</ul>
+
+{% endfor %}
+
+
+{% endblock %}
