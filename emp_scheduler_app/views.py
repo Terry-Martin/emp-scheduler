@@ -32,3 +32,8 @@ class AddScheduleView(CreateView):
 class ShiftView(ListView):
     model = Shift
     template_name = 'shift_info.html'
+
+
+class ScheduleView(ListView):
+    model = Scheduled
+    template_name = 'schedule_info.html'

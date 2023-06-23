@@ -49,4 +49,5 @@ class Scheduled(models.Model):
     emp_detail = models.ForeignKey(Emp_Details, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.shift
+        # return self.shift.name
+        return self.emp_detail.first_name + self.shift.name
