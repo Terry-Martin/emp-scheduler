@@ -39,6 +39,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'shift_info' %}">Shift Info</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'department_info' %}">Department Info</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'manager_info' %}">Manager Info</a>
+                    </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
