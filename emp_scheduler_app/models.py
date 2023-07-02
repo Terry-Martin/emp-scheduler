@@ -15,10 +15,10 @@ class Shift(models.Model):
     added_by = models.ForeignKey(User, on_delete=models.CASCADE, default=2)
 
     def __str__(self):
-        return self.start_time
+        return self.name + "  " + self.start_time
 
     class Meta:
-        ordering = ['start_time', 'name']
+        ordering = ['start_time']
 
 
 class Department(models.Model):
@@ -66,8 +66,7 @@ class Scheduled(models.Model):
     emp_detail = models.ForeignKey(Emp_Details, on_delete=models.CASCADE)
 
     def __str__(self):
-        # return self.shift.name
-        return self.emp_detail + self.shift.name
+        return self.shift.start_time + " - " + self.emp_detail.first_name
 
     class Meta:
         ordering = ['shift', 'emp_detail']
