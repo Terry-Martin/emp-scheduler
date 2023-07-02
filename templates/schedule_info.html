@@ -12,6 +12,7 @@
     </div>
     <div class="row">
         <div class="col-sm-1">Name</div>
+        <div class="col-sm-1">08:00</div>
         <div class="col-sm-1">09:00</div>
         <div class="col-sm-1">10:00</div>
         <div class="col-sm-1">11:00</div>
@@ -22,7 +23,6 @@
         <div class="col-sm-1">16:00</div>
         <div class="col-sm-1">17:00</div>
         <div class="col-sm-1">18:00</div>
-        <div class="col-sm-1">19:00</div>
     </div>
 </div>
 
@@ -34,6 +34,14 @@
     <div class="container text-center">
         <div class="row">
             <div class="col-sm-1">{{ schedule.emp_detail }}</div>
+
+            {% if schedule.shift.start_time == "8:00" %}
+            <div class="col-sm-1 bg-primary">S</div>
+            {% else %}
+            <div class="col-sm-1 bg-secondary">S</div>
+            {% endif %}
+
+
             <div class="col-sm-1 bg-primary">S</div>
             <div class="col-sm-1 bg-primary">S</div>
             <div class="col-sm-1 bg-primary">S</div>
@@ -42,12 +50,32 @@
             <div class="col-sm-1 bg-primary">S</div>
             <div class="col-sm-1 bg-primary">S</div>
             <div class="col-sm-1 bg-primary">S</div>
-            <div class="col-sm-1 bg-primary">S</div>
-            <div class="col-sm-1 bg-primary">S</div>
-            <div class="col-sm-1 bg-primary">S</div>
+            <div class="col-sm-1">S</div>
+            <div class="col-sm-1">S</div>
         </div>
     </div>
 </div>
+
+
+{% endfor %}
+
+
+
+
+
+
+<br>
+
+{% for schedule in object_list %}
+
+<ul>
+    <li>
+        {{ schedule.last_name}}
+        {{ schedule.shift}}
+        {{ schedule.emp_detail }}
+        {{ schedule.shift.lunch}}
+    </li>
+</ul>
 
 {% endfor %}
 
