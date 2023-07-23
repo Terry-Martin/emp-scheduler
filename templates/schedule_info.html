@@ -1,4 +1,4 @@
-<!-- {% extends 'base.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
 
@@ -36,9 +36,14 @@
             {% if schedule.shift.start_time == "8:00" %}
             <div class="col-sm-1 bg-primary">S</div>
             {% else %}
-            <div class="col-sm-1 bg-secondary">S</div>
+            <div class="col-sm-1 bg-secondary">O</div>
             {% endif %}
 
+            {% if schedule.shift.start_time == "8:00" or schedule.shift.start_time == "9:00" %}
+            <div class="col-sm-1 bg-primary">S</div>
+            {% else %}
+            <div class="col-sm-1 bg-secondary">O</div>
+            {% endif %}
 
             <div class="col-sm-1 bg-primary">S</div>
             <div class="col-sm-1 bg-primary">S</div>
@@ -47,9 +52,19 @@
             <div class="col-sm-1 bg-primary">S</div>
             <div class="col-sm-1 bg-primary">S</div>
             <div class="col-sm-1 bg-primary">S</div>
+
+            {% if schedule.shift.start_time == "8:00" %}
+            <div class="col-sm-1 bg-secondary">O</div>
+            {% else %}
             <div class="col-sm-1 bg-primary">S</div>
-            <div class="col-sm-1">S</div>
-            <div class="col-sm-1">S</div>
+            {% endif %}
+
+            {% if schedule.shift.start_time == "8:00" or schedule.shift.start_time == "9:00" %}
+            <div class="col-sm-1 bg-secondary">O</div>
+            {% else %}
+            <div class="col-sm-1 bg-primary">S</div>
+            {% endif %}
+
         </div>
     </div>
 </div>
@@ -68,17 +83,30 @@
 
 <ul>
     <li>
-        {{ schedule.last_name}}
+        {{ schedule.schedule_date_select }}
         {{ schedule.shift}}
         {{ schedule.emp_detail }}
-        {{ schedule.shift.lunch}}
+        {{ schedule.shift.lunch }}
+        <!-- {{ schedule.schedule_date}}
+            {{ schedule.schedule_date_day}} -->
     </li>
 </ul>
 
 {% endfor %}
 
-{% endblock %} -->
+{% endblock %}
 
 
-
-<h1>ARGH</h1>
+<script>
+    $(document).ready(function () {
+        var date_input = $('input[name="date"]'); //our date input has the name "date"
+        var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
+        var options = {
+            format: 'mm/dd/yyyy',
+            container: container,
+            todayHighlight: true,
+            autoclose: true,
+        };
+        date_input.datepicker(options);
+    })
+</script>

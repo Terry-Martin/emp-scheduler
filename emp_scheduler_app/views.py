@@ -37,6 +37,8 @@ class ShiftView(ListView):
     model = Shift
     template_name = 'shift_info.html'
 
+    ordering = ['id']
+
 
 class ScheduleView(ListView):
     model = Scheduled

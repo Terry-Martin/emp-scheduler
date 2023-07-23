@@ -12,13 +12,14 @@ class Shift(models.Model):
     break_one = models.CharField(max_length=200)
     break_two = models.CharField(max_length=200)
     emp_detail = models.ManyToManyField('Emp_Details', through='Scheduled')
-    added_by = models.ForeignKey(User, on_delete=models.CASCADE, default=2)
+    added_by = models.ForeignKey(
+        User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name + "  " + self.start_time
 
-    class Meta:
-        ordering = ['start_time']
+    # class Meta:
+    #     ordering = ['start_time']
 
 
 class Department(models.Model):
@@ -64,6 +65,9 @@ class Emp_Details(models.Model):
 class Scheduled(models.Model):
     shift = models.ForeignKey(Shift, on_delete=models.CASCADE)
     emp_detail = models.ForeignKey(Emp_Details, on_delete=models.CASCADE)
+    schedule_date = models.DateTimeField(default=datetime.now, blank=True)
+    schedule_date_day = models.DateTimeField(default=datetime.now, blank=True)
+    schedule_date_select = models.DateField(default=date.today)
 
     def __str__(self):
         return self.shift.start_time + " - " + self.emp_detail.first_name
